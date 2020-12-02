@@ -1,3 +1,4 @@
+*Establishing locals
 local outvar_econ="kfr_top20_pooled_pooled kir_top20_pooled_pooled kfr_pooled_pooled kir_pooled_pooled"
 local outvar_social = "teenbrth_pooled_female jail_pooled_pooled working_pooled_pooled lpov_nbh_pooled_pooled"
 
@@ -10,6 +11,8 @@ local outcome_p75=""
 foreach var in `outvar_econ' `outvar_social' {
 	local outcome_p75 = "`outcome_p75' `var'_p75"
 }
+
+*Nearest neighbor matching for the 25th and 75th percentile predicted samples
 quietly kmatch md treat ${x} ${muni_control} (`outcome_p25' = ${x} ${muni_control}), nn(1) cal(4.5) att vce(cluster name_id) idgen(match) replace
 mat table_p25 = r(table)
 

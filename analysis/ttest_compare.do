@@ -1,3 +1,4 @@
+*Establishing locals
 local pop_tract_lab="Population"
 local male_lab="Male (\%)"
 local pop_density_lab="Pop./sq. mile"

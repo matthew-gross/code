@@ -1,3 +1,5 @@
+*Establishing locals
+
 local outvar_econ="kfr_top20_pooled_pooled kir_top20_pooled_pooled kfr_pooled_pooled kir_pooled_pooled"
 local outvar_social = "teenbrth_pooled_female jail_pooled_pooled working_pooled_pooled lpov_nbh_pooled_pooled"
 local outcome=""
@@ -5,6 +7,11 @@ foreach var in `outvar_econ' `outvar_social' {
 	local outcome = "`outcome' `var'_mean"
 }
 
+****************************************************************************************************************************************************************
+
+*unweighted version
+
+****************************************************************************************************************************************************************
 quietly kmatch md treat ${x} ${muni_control} (`outcome' = ${x} ${muni_control}), nn(1) cal(4.5) att vce(cluster name_id) idgen(match) replace
 matrix table = r(table)
 local column = 1

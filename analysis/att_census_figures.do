@@ -1,16 +1,5 @@
-
+*Establishing locals
 local SE="C:\Users\\`c(username)'\\Box Sync\Rent Control\Data\SocialExplorer"
-
-local x = "pop_tract male pop_density age_median white black married sing_par educ_no_hs educ_hs lfp unemployment avg_ind_inc fam_below_pov duration_5 units_total renter_occ_per rent_vac_rate effect_rent_vac avg_gross_rent avg_unit_value"
-
-local ps_x="`x' pop_density_sq male_sq lfp_sq unemployment_sq fam_below_pov_sq avg_gross_rent_sq rent_vac_rate_sq avg_unit_value_sq white_sq unemp_educ_coll"
-
-local muni_control = "city_renter_occ_per city_rent_vac_rate city_white city_black city_unemployment city_avg_gross_rent pres_1968_dem pres_1968_wallace population city_fam_below_pov gov_revenue_pc tax_total_revenue_pc tax_property_revenue_pc gov_state_igr_pc gov_expenditure_total_pc gov_educ_expenditure_pc police_expenditure_pc public_welf_expenditure_pc"
-
-local wc=wordcount("`x' `muni_control'")
-
-local wc_x = wordcount("`x'")
-local wc_mc = wordcount("`muni_control'")
 
 keep treat state tract10 name_id ${control}
 preserve
